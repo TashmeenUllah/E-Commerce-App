@@ -1,0 +1,63 @@
+// // 🔧 Plugins must be at the top
+// plugins {
+//     id "com.google.gms.google-services" version "4.4.2" apply false
+// }
+
+// buildscript {
+//     repositories {
+//         google()
+//         mavenCentral()
+//     }
+// }
+
+// allprojects {
+//     repositories {
+//         google()
+//         mavenCentral()
+//     }
+// }
+
+// // 💡 You must use Groovy syntax here — no val, no Kotlin-style code
+// gradle.projectsEvaluated {
+//     rootProject.buildDir = file('../../build')
+
+//     subprojects {
+//         buildDir = new File(rootProject.buildDir, project.name)
+//         evaluationDependsOn(':app')
+//     }
+// }
+
+// // ✅ Register a task with Groovy
+// tasks.register('clean', Delete) {
+//     delete rootProject.buildDir
+// }
+
+
+buildscript {
+    repositories {
+        google()
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:8.1.0' // Ensure this matches your project
+        classpath 'com.google.gms:google-services:4.3.15' // Correct location for this
+    }
+}
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+
+rootProject.buildDir = "../build"
+subprojects {
+    project.buildDir = "${rootProject.buildDir}/${project.name}"
+}
+subprojects {
+    project.evaluationDependsOn(":app")
+}
+
+tasks.register("clean", Delete) {
+    delete rootProject.buildDir
+}

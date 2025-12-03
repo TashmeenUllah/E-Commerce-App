@@ -1,0 +1,102 @@
+// plugins {
+//     id("com.android.application")
+//     id("com.google.gms.google-services")
+//     id("kotlin-android")
+//     id("dev.flutter.flutter-gradle-plugin")
+// }
+
+// android {
+//     namespace = "com.example.flutter_ecommerce"
+//     compileSdk = 34
+//     ndkVersion = flutter.ndkVersion
+
+//     compileOptions {
+//         sourceCompatibility = JavaVersion.VERSION_11
+//         targetCompatibility = JavaVersion.VERSION_11
+//     }
+
+//     kotlinOptions {
+//         jvmTarget = JavaVersion.VERSION_11.toString()
+//     }
+
+//     defaultConfig {
+//         applicationId = "com.example.flutter_ecommerce"
+//         minSdk = 23
+//         targetSdk = 34
+//         versionCode = 1
+//         versionName = "1.0.0"
+//     }
+
+//     buildTypes {
+//         getByName("release") {
+//             signingConfig = signingConfigs.getByName("debug")
+//         }
+//     }
+// }
+
+// flutter {
+//     source = "../.."
+// }
+
+// dependencies {
+//     implementation(platform("com.google.firebase:firebase-bom:33.12.0"))
+//     implementation("com.google.firebase:firebase-analytics")
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+plugins {
+    id "com.android.application"
+    id 'com.google.gms.google-services'
+    id("kotlin-android")
+    id "dev.flutter.flutter-gradle-plugin"
+}
+
+android {
+    namespace = "com.example.flutter_ecommerce"
+    compileSdkVersion 34
+    ndkVersion = flutter.ndkVersion
+
+    defaultConfig {
+        applicationId = "com.example.flutter_ecommerce"
+        minSdkVersion 23
+        targetSdkVersion 34
+        versionCode 1
+        versionName "1.0.0"
+    }
+
+    buildFeatures {
+        buildConfig = true
+    }
+
+    buildTypes {
+        release {
+            signingConfig signingConfigs.debug
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    implementation platform('com.google.firebase:firebase-bom:33.6.0')
+    implementation 'com.google.firebase:firebase-analytics'
+}
